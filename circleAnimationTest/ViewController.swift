@@ -9,17 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let circle = CircleView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        addCircleView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func addCircleView() {
+        let circleHeight = CGFloat(view.frame.height / 2.5)
+        let circleWidth = circleHeight
+        
+        let circleView = CircleView(frame: CGRectMake((view.bounds.width / 2) - (circleWidth / 2), (view.bounds.height / 2) - (circleHeight / 2), circleWidth, circleHeight))
+        
+        view.addSubview(circleView)
+        circleView.animateCircle(0.8)
     }
-
-
+    
 }
 
